@@ -111,6 +111,14 @@
     @apply bg-white/80 backdrop-blur-sm border border-white/20 shadow-lg rounded-xl;
   }
   
+  .tech-card {
+    @apply relative overflow-hidden rounded-xl backdrop-blur-sm bg-white/90 border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1;
+  }
+
+  .tech-card::before {
+    @apply content-[''] absolute -top-1/2 -right-1/2 w-[200%] h-[200%] rounded-full bg-gradient-to-br from-blue-500/5 to-purple-500/10 opacity-0 hover:opacity-100 transition-opacity duration-700 blur-3xl;
+  }
+  
   .button-primary {
     @apply bg-aquilonis-blue text-white rounded-full px-6 py-3 font-medium hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5;
   }
@@ -121,6 +129,14 @@
   
   .button-accent {
     @apply bg-aquilonis-orange text-white rounded-full px-6 py-3 font-medium hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5;
+  }
+
+  .tech-button {
+    @apply relative overflow-hidden rounded-lg px-6 py-3 font-medium transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg;
+  }
+
+  .tech-button::after {
+    @apply content-[''] absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full hover:translate-x-full transition-transform duration-700;
   }
 
   .nav-link {
@@ -138,9 +154,21 @@
   .section-title {
     @apply text-3xl md:text-4xl font-bold mb-4 text-center;
   }
+  
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-aquilonis-blue to-blue-600;
+  }
 
   .section-subtitle {
     @apply text-lg text-gray-600 mb-12 max-w-3xl mx-auto text-center;
+  }
+  
+  .tech-icon-container {
+    @apply relative w-16 h-16 rounded-2xl bg-gradient-to-br shadow-md flex items-center justify-center text-white transform hover:scale-105 transition-all duration-300 overflow-hidden;
+  }
+  
+  .tech-icon-container::after {
+    @apply content-[''] absolute inset-0 bg-white/20 opacity-0 hover:opacity-100 transition-opacity duration-300;
   }
 }
 
@@ -206,6 +234,17 @@
   animation: gradient-shift 15s ease infinite;
 }
 
+/* Floating animation for tech elements */
+.float-animation {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
 @keyframes gradient-shift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -231,4 +270,29 @@
 
 .button-hover-effect:hover:after {
   left: 100%;
+}
+
+/* Tech-inspired grid background */
+.tech-grid-bg {
+  background-image: radial-gradient(rgba(30, 58, 138, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Glowing effect for important elements */
+.glow-effect {
+  box-shadow: 0 0 15px rgba(37, 99, 235, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.glow-effect:hover {
+  box-shadow: 0 0 25px rgba(37, 99, 235, 0.5);
+}
+
+/* Blurred circles for background decoration */
+.blur-circle {
+  filter: blur(70px);
+  border-radius: 50%;
+  position: absolute;
+  z-index: 0;
+  opacity: 0.6;
 }
