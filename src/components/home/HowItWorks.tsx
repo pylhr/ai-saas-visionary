@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
-import { ClipboardList, Code, RocketLaunch } from 'lucide-react';
+import { ClipboardList, Code, Rocket } from 'lucide-react';
 
 const steps = [
   {
@@ -14,7 +14,7 @@ const steps = [
     description: 'Our expert team builds your custom AI solution, employing best practices and cutting-edge technologies.'
   },
   {
-    icon: RocketLaunch,
+    icon: Rocket,
     title: 'Launch & Scale',
     description: 'We deploy your solution, provide training, and offer ongoing support to help you scale seamlessly.'
   }
