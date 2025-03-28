@@ -138,8 +138,28 @@ const Navbar = () => {
                     Use Cases
                   </Link>
                 </NavigationMenuItem>
+                
+                <NavigationMenuItem>
+                  <Link to="/blog" className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                    isActive('/blog') 
+                      ? 'text-aquilonis-blue bg-blue-50 dark:bg-blue-900/20 dark:text-blue-300' 
+                      : 'text-gray-700 hover:text-aquilonis-blue hover:bg-blue-50 dark:text-gray-200 dark:hover:bg-blue-900/20'
+                  }`}>
+                    Blog
+                  </Link>
+                </NavigationMenuItem>
 
                 <NavigationMenuItem>
+                  <Link to="/whitepapers" className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                    isActive('/whitepapers') 
+                      ? 'text-aquilonis-blue bg-blue-50 dark:bg-blue-900/20 dark:text-blue-300' 
+                      : 'text-gray-700 hover:text-aquilonis-blue hover:bg-blue-50 dark:text-gray-200 dark:hover:bg-blue-900/20'
+                  }`}>
+                    Whitepapers
+                  </Link>
+                </NavigationMenuItem>
+
+                {/*<NavigationMenuItem>
                   <NavigationMenuTrigger className={`text-sm ${
                     isActive('/blog') || isActive('/whitepapers') 
                       ? 'text-aquilonis-blue' 
@@ -174,6 +194,7 @@ const Navbar = () => {
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
+                */}
               </NavigationMenuList>
             </NavigationMenu>
           </div>

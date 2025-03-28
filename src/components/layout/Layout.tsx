@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import Marquee from './Marquee';
+
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -42,14 +42,18 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   }, []);
 
   return (
+    <>
+    
     <div className="flex flex-col min-h-screen">
-      {/*<Marquee />*/}
+      
       <Navbar />
+      
       <main className="flex-grow pt-20">
         {children}
       </main>
       <Footer />
     </div>
+    </>
   );
 };
 
