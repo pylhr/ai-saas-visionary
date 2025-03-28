@@ -44,12 +44,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="flex flex-col min-h-screen">
       <Marquee />
-      <div className="flex-grow">
-        <Navbar />
-        <main className="pt-20">
-          {children}
-        </main>
-      </div>
+      <Navbar />
+      <main className="flex-grow pt-20">
+        {children}
+      </main>
       <Footer />
     </div>
   );
