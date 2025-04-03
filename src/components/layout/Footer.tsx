@@ -23,7 +23,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a 
-                href="https://linkedin.com" 
+                href="https://linkedin.com/company/aquilonis-ai" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-white transition-colors duration-300"
@@ -31,15 +31,7 @@ const Footer = () => {
               >
                 <Linkedin size={20} />
               </a>
-              <a 
-                href="https://twitter.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white transition-colors duration-300"
-                aria-label="Twitter"
-              >
-                <Twitter size={20} />
-              </a>
+              
               <a 
                 href="mailto:contact@aquilonisai.com"
                 className="text-gray-300 hover:text-white transition-colors duration-300"

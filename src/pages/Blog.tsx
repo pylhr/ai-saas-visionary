@@ -8,24 +8,24 @@ const blogPosts = [
   {
     title: 'The Future of AI in Business Automation',
     excerpt: 'Explore how AI is revolutionizing business automation and what it means for the future of work.',
-    author: 'Alex Johnson',
-    date: 'June 15, 2023',
+    author: 'Priyanshu Lohar',
+    date: 'June 15, 2024',
     image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
     category: 'Automation'
   },
   {
     title: 'Building Effective AI Agents for Customer Support',
     excerpt: 'Learn the key components of designing AI agents that deliver exceptional customer service experiences.',
-    author: 'Sarah Williams',
-    date: 'July 22, 2023',
+    author: 'Priyanshu Lohar',
+    date: 'July 22, 2024',
     image: 'https://images.unsplash.com/photo-1531747118685-ca8fa6e08806?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80',
     category: 'AI Agents'
   },
   {
     title: 'Case Study: Financial Services Transformation with AI',
     excerpt: 'How a leading financial institution achieved 200% ROI by implementing AI-powered automation solutions.',
-    author: 'Michael Chen',
-    date: 'August 5, 2023',
+    author: 'Priyanshu Lohar',
+    date: 'August 5, 2024',
     image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
     category: 'Case Study'
   },
