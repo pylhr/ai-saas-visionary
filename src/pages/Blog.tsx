@@ -32,24 +32,24 @@ const blogPosts = [
   {
     title: 'Ethical Considerations in AI Development',
     excerpt: 'An in-depth look at the ethical challenges and best practices in developing responsible AI solutions.',
-    author: 'Elena Rodriguez',
-    date: 'September 10, 2023',
+    author: 'Priyanshu Lohar',
+    date: 'September 10, 2024',
     image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80',
     category: 'Ethics'
   },
   {
     title: 'The ROI of Custom AI SaaS Solutions',
     excerpt: 'A data-driven analysis of the return on investment for businesses implementing custom AI SaaS products.',
-    author: 'David Park',
-    date: 'October 18, 2023',
+    author: 'Priyanshu Lohar',
+    date: 'October 18, 2024',
     image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
     category: 'Business'
   },
   {
     title: 'AI Integration: Bridging Legacy Systems with Modern Solutions',
     excerpt: 'How businesses can successfully integrate AI capabilities with their existing legacy infrastructure.',
-    author: 'Jennifer Lee',
-    date: 'November 3, 2023',
+    author: 'Priyanshu Lohar',
+    date: 'November 3, 2024',
     image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
     category: 'Integration'
   }
