@@ -1,61 +1,25 @@
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from '../components/layout/Layout';
 import { Calendar, User, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
-const blogPosts = [
-  {
-    title: 'The Future of AI in Business Automation',
-    excerpt: 'Explore how AI is revolutionizing business automation and what it means for the future of work.',
-    author: 'Priyanshu Lohar',
-    date: 'June 15, 2024',
-    image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
-    category: 'Automation'
-  },
-  {
-    title: 'Building Effective AI Agents for Customer Support',
-    excerpt: 'Learn the key components of designing AI agents that deliver exceptional customer service experiences.',
-    author: 'Priyanshu Lohar',
-    date: 'July 22, 2024',
-    image: 'https://images.unsplash.com/photo-1531747118685-ca8fa6e08806?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80',
-    category: 'AI Agents'
-  },
-  {
-    title: 'Case Study: Financial Services Transformation with AI',
-    excerpt: 'How a leading financial institution achieved 200% ROI by implementing AI-powered automation solutions.',
-    author: 'Priyanshu Lohar',
-    date: 'August 5, 2024',
-    image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
-    category: 'Case Study'
-  },
-  {
-    title: 'Ethical Considerations in AI Development',
-    excerpt: 'An in-depth look at the ethical challenges and best practices in developing responsible AI solutions.',
-    author: 'Priyanshu Lohar',
-    date: 'September 10, 2024',
-    image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80',
-    category: 'Ethics'
-  },
-  {
-    title: 'The ROI of Custom AI SaaS Solutions',
-    excerpt: 'A data-driven analysis of the return on investment for businesses implementing custom AI SaaS products.',
-    author: 'Priyanshu Lohar',
-    date: 'October 18, 2024',
-    image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
-    category: 'Business'
-  },
-  {
-    title: 'AI Integration: Bridging Legacy Systems with Modern Solutions',
-    excerpt: 'How businesses can successfully integrate AI capabilities with their existing legacy infrastructure.',
-    author: 'Priyanshu Lohar',
-    date: 'November 3, 2024',
-    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
-    category: 'Integration'
-  }
-];
+import { MarkdownContent, parseMarkdownContent } from '../utils/markdown';
+import ReactMarkdown from 'react-markdown';
 
 const Blog = () => {
+  const [posts, setPosts] = useState<MarkdownContent[]>([]);
+
+  useEffect(() => {
+    // In a real app, this would fetch from an API
+    // For demo, we're importing directly
+    import.meta.glob('../content/blog/*.md', { eager: true, as: 'string' })
+      .then((modules) => {
+        const parsedPosts = Object.values(modules).map((content: string) => 
+          parseMarkdownContent(content)
+        );
+        setPosts(parsedPosts);
+      });
+  }, []);
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -74,7 +38,7 @@ const Blog = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post, index) => (
+            {posts.map((post, index) => (
               <article key={index} className="rounded-xl overflow-hidden shadow-lg border border-gray-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 reveal">
                 <div className="relative">
                   <img 
@@ -103,13 +67,13 @@ const Blog = () => {
                       <span>{post.date}</span>
                     </div>
                   </div>
-                  <a 
-                    href="#"
+                  <button 
+                    onClick={() => {/* Implement view post logic */}}
                     className="inline-flex items-center font-medium text-aquilonis-blue hover:underline"
                   >
                     Read more
                     <ArrowRight className="w-4 h-4 ml-2" />
-                  </a>
+                  </button>
                 </div>
               </article>
             ))}

@@ -1,45 +1,25 @@
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from '../components/layout/Layout';
 import { FileText, Download, Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
-const whitepapers = [
-  {
-    title: 'The State of AI in Business: 2023 Report',
-    description: 'A comprehensive analysis of AI adoption trends, challenges, and opportunities across industries.',
-    date: 'June 2023',
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
-    pages: 42,
-    fileSize: '3.8 MB'
-  },
-  {
-    title: 'Building Autonomous AI Agents: Architecture and Best Practices',
-    description: 'Technical insights into designing, implementing, and optimizing autonomous AI agents for business applications.',
-    date: 'August 2023',
-    image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
-    pages: 36,
-    fileSize: '4.2 MB'
-  },
-  {
-    title: 'AI-Driven Workflow Optimization: Measurable Results',
-    description: 'Case studies and data-based analysis of how AI-powered workflow optimization delivers measurable business outcomes.',
-    date: 'September 2023',
-    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
-    pages: 28,
-    fileSize: '2.9 MB'
-  },
-  {
-    title: 'Security Considerations for AI SaaS Products',
-    description: 'A detailed examination of security challenges, regulatory compliance, and best practices for AI-powered SaaS solutions.',
-    date: 'October 2023',
-    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
-    pages: 34,
-    fileSize: '3.5 MB'
-  }
-];
+import { MarkdownContent, parseMarkdownContent } from '../utils/markdown';
+import ReactMarkdown from 'react-markdown';
 
 const Whitepapers = () => {
+  const [whitepapers, setWhitepapers] = useState<MarkdownContent[]>([]);
+
+  useEffect(() => {
+    // In a real app, this would fetch from an API
+    // For demo, we're importing directly
+    import.meta.glob('../content/whitepapers/*.md', { eager: true, as: 'string' })
+      .then((modules) => {
+        const parsedPapers = Object.values(modules).map((content: string) => 
+          parseMarkdownContent(content)
+        );
+        setWhitepapers(parsedPapers);
+      });
+  }, []);
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -76,7 +56,7 @@ const Whitepapers = () => {
                     <span>{whitepaper.pages} pages</span>
                   </div>
                   <h2 className="text-xl font-bold mb-3">{whitepaper.title}</h2>
-                  <p className="text-gray-600 mb-6 flex-grow">{whitepaper.description}</p>
+                  <p className="text-gray-600 mb-6 flex-grow">{whitepaper.excerpt}</p>
                   <div className="flex justify-between items-center mt-auto">
                     <span className="text-sm text-gray-500">{whitepaper.fileSize} PDF</span>
                     <button className="flex items-center space-x-2 button-primary py-2">
