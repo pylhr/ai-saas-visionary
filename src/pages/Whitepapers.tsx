@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import Layout from '../components/layout/Layout';
 import { FileText, Download, Calendar } from 'lucide-react';
@@ -9,15 +10,19 @@ const Whitepapers = () => {
   const [whitepapers, setWhitepapers] = useState<MarkdownContent[]>([]);
 
   useEffect(() => {
-    // In a real app, this would fetch from an API
-    // For demo, we're importing directly
-    import.meta.glob('../content/whitepapers/*.md', { eager: true, as: 'string' })
-      .then((modules) => {
+    const loadMarkdownFiles = async () => {
+      try {
+        const modules = import.meta.glob('../content/whitepapers/*.md', { eager: true, as: 'string' });
         const parsedPapers = Object.values(modules).map((content: string) => 
           parseMarkdownContent(content)
         );
         setWhitepapers(parsedPapers);
-      });
+      } catch (error) {
+        console.error("Error loading markdown files:", error);
+      }
+    };
+
+    loadMarkdownFiles();
   }, []);
 
   return (

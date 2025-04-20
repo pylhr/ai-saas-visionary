@@ -1,6 +1,6 @@
 
 ---
-title: The State of AI in Business: 2023 Report
+title: The State of AI in Business - 2023 Report
 date: June 2023
 image: https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80
 pages: 42
@@ -8,7 +8,7 @@ fileSize: 3.8 MB
 excerpt: A comprehensive analysis of AI adoption trends, challenges, and opportunities across industries.
 ---
 
-# The State of AI in Business: 2023 Report
+# The State of AI in Business - 2023 Report
 
 ## Executive Summary
 

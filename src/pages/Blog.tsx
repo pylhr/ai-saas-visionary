@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import Layout from '../components/layout/Layout';
 import { Calendar, User, ArrowRight } from 'lucide-react';
@@ -9,15 +10,19 @@ const Blog = () => {
   const [posts, setPosts] = useState<MarkdownContent[]>([]);
 
   useEffect(() => {
-    // In a real app, this would fetch from an API
-    // For demo, we're importing directly
-    import.meta.glob('../content/blog/*.md', { eager: true, as: 'string' })
-      .then((modules) => {
+    const loadMarkdownFiles = async () => {
+      try {
+        const modules = import.meta.glob('../content/blog/*.md', { eager: true, as: 'string' });
         const parsedPosts = Object.values(modules).map((content: string) => 
           parseMarkdownContent(content)
         );
         setPosts(parsedPosts);
-      });
+      } catch (error) {
+        console.error("Error loading markdown files:", error);
+      }
+    };
+
+    loadMarkdownFiles();
   }, []);
 
   return (
